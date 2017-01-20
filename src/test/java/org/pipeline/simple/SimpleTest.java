@@ -13,7 +13,7 @@ public class SimpleTest {
 
 	@Test
 	public void testOtraSuma() {
-		assert 1 == testSimple.suma(0,1); 
+		assert 2 == testSimple.suma(0,1); 
 	}
 	
 	
