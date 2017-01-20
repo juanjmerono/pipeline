@@ -10,5 +10,11 @@ public class SimpleTest {
 	public void testSuma() {
 		assert 21 == testSimple.suma(10,11); 
 	}
+
+	@Test
+	public void testOtraSuma() {
+		assert 1 == testSimple.suma(0,1); 
+	}
+	
 	
 }
