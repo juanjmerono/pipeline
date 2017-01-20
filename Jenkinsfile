@@ -1,6 +1,4 @@
 #!groovy
-# Jenkinsfile
-# Build and test a Maven project
 
 node {
     // Get Artifactory server instance, defined in the Artifactory Plugin administration page.
