@@ -28,7 +28,7 @@ public class SimpleTest {
 
 	@Test
 	public void testFail() {
-		assert 29 == testSimple.suma(20,-1); 
+		assert 29 == testSimple.suma(20,9); 
 	}
 	
 }
