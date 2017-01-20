@@ -16,5 +16,9 @@ public class SimpleTest {
 		assert 1 == testSimple.suma(0,1); 
 	}
 	
+	@Test
+	public void testResta() {
+		assert 9 == testSimple.suma(10,-1); 
+	}
 	
 }
