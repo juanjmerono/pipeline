@@ -30,5 +30,10 @@ public class SimpleTest {
 	public void testFail() {
 		assert 29 == testSimple.suma(20,9); 
 	}
-	
+
+	@Test
+	public void testLast() {
+		assert 19 == testSimple.suma(10,9); 
+	}
+
 }
