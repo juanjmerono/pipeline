@@ -9,8 +9,9 @@ node {
 		checkout scm
 	}
 
-	if (env.BRANCH_NAME != 'master') {
-		sh "git status"
+	if (env.BRANCH_NAME == 'test') {
+		sh "git pull origin mrama"
+		sh "git push origin test"
 	}
 
 	// Mark the code build 'stage'....
