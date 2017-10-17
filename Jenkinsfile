@@ -10,7 +10,7 @@ node {
 	}
 
 	if (env.BRANCH_NAME != 'master') {
-		sh "echo isbranch"
+		sh "git status"
 	}
 
 	// Mark the code build 'stage'....
