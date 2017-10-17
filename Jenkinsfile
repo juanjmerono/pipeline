@@ -1,17 +1,23 @@
+properties([[$class: 'BuildDiscarderProperty',
+			strategy: [$class: 'LogRotator', numToKeepStr: '10']],
+			pipelineTriggers([cron('@midnight')]),
+			])
 node {
-   // Mark the code checkout 'stage'....
-   stage 'Checkout'
+	// Mark the code checkout 'stage'....
+	stage ('Checkout') {
+		// Checkout code from repository
+		checkout scm
+	}
 
-   // Checkout code from repository
-   checkout scm
+	if (env.BRANCH_NAME != 'master') {
+		sh "echo isbranch"
+	}
 
-   // Get the maven tool.
-   // ** NOTE: This 'M3' maven tool must be configured
-   // **       in the global configuration.
-   def mvnHome = tool 'Maven-3.3.9'
-
-   // Mark the code build 'stage'....
-   stage 'Build'
-   // Run the maven build
-   sh "${mvnHome}/bin/mvn clean install"
+	// Mark the code build 'stage'....
+	stage ('Build') {
+		withMaven(maven: 'Maven-3.3.9') {
+      		// Run the maven build
+      		sh "mvn clean install"
+		} // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe reports and FindBugs reports	   // Run the maven build
+	}
 }
